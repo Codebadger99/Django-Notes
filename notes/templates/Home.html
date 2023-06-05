@@ -1,0 +1,51 @@
+{% extends 'Base.html'%} {% block content %}
+
+<div class="container my-4">
+  <h1 class="h1 p-4">Notes</h1>
+  {% if obj %}
+  <div class="row">
+    {% for note in obj %}
+
+    <div class="col-4 col-md-4 p-2">
+      <a href="note/{{note.id}}">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">{{note.heading}}</h3>
+            <p class="card-text overflow-auto" id="title">{{note.title}}</p>
+          </div>
+          <div class="card-footer text-muted">{{note.created}}</div>
+
+          <div
+            class="d-flex gap-2 p-4"
+            align-items-center
+            justify-content-center
+          >
+            <a href="edit/{{note.id}}/"
+              ><button class="btn btn-primary">Edit</button></a
+            >
+            <a href="delete/{{note.id}}"
+              ><button class="btn btn-danger">Delete</button></a
+            >
+          </div>
+        </div>
+      </a>
+    </div>
+
+    {% endfor %}
+  </div>
+
+  {% else %}
+  <h1
+    class="d-flex align-items-center justify-content-center my-5 py-5 text-capitalize h2"
+  >
+    you do not have any note please tap the '+' icon to create a note
+  </h1>
+
+  {% endif %}
+</div>
+<div class="d-flex align-items-center justify-content-center my-5" id="create">
+  <a class="btn btn-primary rounded-circle mx-5" id="plus" href="create"
+    ><i class="fa fa-plus"></i
+  ></a>
+</div>
+{% endblock %}

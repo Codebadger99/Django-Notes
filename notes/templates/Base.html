@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <title>Django Notes</title>
+    <link rel="stylesheet" href="{% static 'Mdbootstrap/css/mdb.min.css'%}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'fontawesome/fontawesome-free-6.4.0-web/css/all.min.css'%}"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      #plus {
+        font-size: 3rem;
+      }
+      #create {
+        position: absolute;
+        left: 0;
+        right: 0;
+        z-index: 999;
+      }
+
+      .fa-arrow-left {
+        padding-bottom: 1em;
+      }
+
+      #title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      #title::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    {% block content%}{% endblock %}
+  </body>
+</html>
